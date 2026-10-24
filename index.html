@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="探索未知，分享知识，促进交流。一个安放阅读、思考与学术兴趣的个人空间。">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#ffffff">
+  <title>我的学术主页</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./academic.css">
+  <link rel="stylesheet" href="./vendor/katex/katex.min.css">
+  <script src="./renderer.js" defer></script>
+  <script src="./posts.js" defer></script>
+  <script src="./knowledge.js" defer></script>
+  <script src="./knowledge-ui.js" defer></script>
+  <script src="./homepage.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="academic-header">
+    <div class="academic-header-inner">
+      <a class="academic-brand" href="#/" aria-label="我的学术主页，回到首页">我的学术主页<span>AN OPEN MIND</span></a>
+      <nav class="primary-nav" id="primary-nav" aria-label="主导航">
+        <a href="#/" data-nav="home">首页</a>
+        <a href="#/about" data-nav="about">关于我</a>
+        <a href="#/research" data-nav="research">研究方向</a>
+        <a href="#/publications" data-nav="publications">研究成果</a>
+        <a href="#/news" data-nav="news">动态</a>
+        <a href="#/articles" data-nav="articles">随笔与笔记</a>
+      </nav>
+      <div class="academic-actions">
+        <button class="icon-button" id="search-open" aria-label="搜索全站"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></button>
+        <button class="icon-button theme-button" id="theme-toggle" aria-label="切换深色模式" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.2A8.5 8.5 0 0 1 9.8 3.8a8.5 8.5 0 1 0 10.4 10.4Z"/></svg></button>
+        <a class="button button-primary header-contact" href="#/contact" data-nav="contact">交流互动 <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-button" id="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <noscript><div class="no-script">我的学术主页。请启用 JavaScript 浏览本站。</div></noscript>
+  <footer class="academic-footer">
+    <div class="footer-content">
+      <a class="academic-brand footer-logo" href="#/">我的学术主页<span>探索未知 · 分享知识 · 促进交流</span></a>
+      <nav class="footer-navigation" aria-label="页脚导航"><a href="#/about">关于我</a><a href="#/research">研究方向</a><a href="#/publications">研究成果</a><a href="#/knowledge">知识库</a><a href="#/archive">文章归档</a><a href="https://github.com/sunhexiang2026/sunhexiang2026.github.io" target="_blank" rel="noopener noreferrer">管理内容</a></nav>
+      <a class="footer-contact" href="#/contact" aria-label="查看交流方式"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
+    </div>
+    <div class="footer-bottom"><span>保持好奇，慢慢积累。</span><span><i aria-hidden="true"></i> 公开阅读</span></div>
+  </footer>
+  <dialog id="search-dialog" aria-labelledby="search-title">
+    <div class="dialog-heading"><div><p class="section-kicker">FIND SOMETHING</p><h2 id="search-title">寻找一个想法</h2></div><button class="icon-button" id="search-close" aria-label="关闭搜索">✕</button></div>
+    <label class="sr-only" for="search-input">搜索页面、文章与笔记</label>
+    <input id="search-input" type="search" placeholder="搜索页面、文章与笔记…" autocomplete="off">
+    <div id="search-results" aria-live="polite"></div>
+    <p class="search-tip">按 Esc 关闭 · 点击结果阅读</p>
+  </dialog>
+</body>
+</html>
