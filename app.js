@@ -95,7 +95,7 @@
   }
 
   function about() {
-    return heading('A QUIET CORNER','一个安放文字的小地方。','文章、笔记，以及值得留下的生活片刻。')+`<section class="about-copy"><div class="article-body">${renderMarkdown(blog.about).html}</div><h2>在这里，记录些什么</h2><p>把想法写成随笔，把理解整理成笔记，也为日常留一些空白。</p><div class="about-categories">${Object.entries(categories).map(([key,label])=>`<a href="#/category/${key}">${label} ↗</a>`).join('')}</div><h2>关于隐私</h2><p>当前为 GitHub Pages 公开静态网站，任何人均可阅读。未设置评论、访问统计或外部字体。页面没有填写真实姓名、联系方式或研究成果。</p></section>`;
+    return heading('A QUIET CORNER','一个安放文字的小地方。','文章、笔记，以及值得留下的生活片刻。')+`<section class="about-copy"><div class="article-body">${renderMarkdown(blog.about).html}</div><h2>在这里，记录些什么</h2><p>把想法写成随笔，把理解整理成笔记，也为日常留一些空白。</p><div class="about-categories">${Object.entries(categories).map(([key,label])=>`<a href="#/category/${key}">${label} ↗</a>`).join('')}</div><h2>关于隐私</h2><p>当前为 GitHub Pages 公开静态网站，任何人均可阅读。未设置评论、访问统计或外部字体。个人简介和已发表论文见相应栏目，未发表成果不在本站展示。</p></section>`;
   }
 
   function route() {
