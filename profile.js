@@ -2,7 +2,7 @@
 window.ACADEMIC_PROFILE = {
   name: '孙鹤翔',
   englishName: 'Hexiang Sun',
-  degree: '中国科学技术大学 · 物理学博士',
+  education: '中国科学技术大学 · 物理学直博生（在读）',
   position: '合肥国家实验室 · 助理研究员',
   email: 'sunhexiang@mail.ustc.edu.cn',
   introduction: '关注量子密码学与隐私保护协议，在具体的信息任务中理解量子资源、协议设计与安全条件之间的关系。',
