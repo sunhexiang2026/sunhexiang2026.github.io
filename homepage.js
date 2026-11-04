@@ -24,10 +24,55 @@
   const external = (label, url, cls='text-link') => '<a class="'+cls+'" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+label+arrow()+'</a>';
   const authorLine = paper => paper.authors.map(name=>name===profile.englishName?'<strong>'+esc(name)+'</strong>':esc(name)).join(', ');
   const areas = [
-    {id:'questions',icon:'network',title:'量子隐私比较',text:'在保护私密输入的前提下，获得约定的比较结果。',detail:'关注比较任务的输出权限、参与方角色与隐私要求。已发表工作研究仅由一方获得结果、无需第三方参与的比较场景。'},
-    {id:'methods',icon:'chip',title:'量子隐私查询',text:'以查询协议为基础，构造隐私保护任务。',detail:'关注查询者与数据库持有者之间的信息边界，以及查询协议如何用于其他密码任务。已发表论文讨论了从量子隐私查询到单向隐私比较的构造。'},
-    {id:'connections',icon:'leaf',title:'量子协议与安全分析',text:'把功能、认证与安全条件放在同一框架中理解。',detail:'关注协议设计中的身份认证、参与方可获得的信息与安全假设。具体安全结论需要结合论文中的模型、参数和适用条件阅读。'}
-  ];
+  {
+    "id": "spacetime-cryptography",
+    "icon": "network",
+    "title": "时空约束量子密码",
+    "text": "位置验证、时空约束传输与光学实现。",
+    "detail": "研究量子位置验证与时空约束不经意传输，关注连续变量和光学协议中的损耗、后选择、通信时序及攻击资源，刻画协议可实现的安全范围。",
+    "tag": "协议设计与因果约束"
+  },
+  {
+    "id": "cryptographic-primitives",
+    "icon": "file",
+    "title": "量子密码原语与认证",
+    "text": "不经意传输、弱掷币、认证与可认证删除。",
+    "detail": "研究不经意传输、弱掷币、身份认证、可复用量子验证与可认证删除，分析作弊概率、可转移性和资源消耗，探索不同密码任务之间的联系。",
+    "tag": "密码任务与安全定义"
+  },
+  {
+    "id": "measurement-discrimination",
+    "icon": "chip",
+    "title": "量子测量、判别与最优性",
+    "text": "延迟信息、非高斯测量与精确性能界。",
+    "detail": "研究量子态判别、非高斯测量、弃答和远程测量，结合算符方法、半正定规划与对偶证书，寻找最优构造并分析测量信息、扰动和隐私之间的权衡。",
+    "tag": "数学工具与最优构造"
+  },
+  {
+    "id": "quantum-networks",
+    "icon": "network",
+    "title": "量子网络、纠缠与密钥",
+    "text": "网络可辨识性、纠缠蒸馏与私密关联。",
+    "detail": "研究网络结构识别、纠缠蒸馏、量子密钥中继和独立源网络，关注噪声、后选择及内部信息泄漏如何影响关联的可认证性与密钥提取能力。",
+    "tag": "网络结构与隐私资源"
+  },
+  {
+    "id": "randomness-device-security",
+    "icon": "leaf",
+    "title": "私密随机性与设备安全",
+    "text": "Bell非局域性、量子旁信息与有限数据。",
+    "detail": "研究设备无关密钥生成、物理约束下的私密随机性及量子因果控制，分析Bell检验、量子旁信息、设备记忆和反馈，建立适用于有限数据与序贯过程的安全保证。",
+    "tag": "观测认证与有限资源"
+  },
+  {
+    "id": "quantum-resources-complexity",
+    "icon": "chip",
+    "title": "量子资源与计算复杂性",
+    "text": "存储、魔性、通信与计算能力的作用。",
+    "detail": "研究量子存储、纠缠、魔性、通信和参考系统的资源代价，涵盖不可克隆加密、可广播信道、数据隐藏与隐私传感，并探索计算限制下密钥和纠缠提取的差异。",
+    "tag": "资源约束与能力分离"
+  }
+];
   const publicationTypes = [{id:'journal',name:'期刊论文',en:'JOURNAL ARTICLES',tone:'blue'},{id:'conference',name:'会议论文',en:'CONFERENCE PAPERS',tone:'amber'},{id:'preprint',name:'预印本',en:'PREPRINTS',tone:'sage'}];
   const updates = [
     {id:'profile-update',date:'2026-10-24',title:'更新个人介绍与第一篇 SCI 论文',text:'主页补充个人简介、学术邮箱与已发表论文信息，并加入中文导读和引用入口。',href:'#/publications',tag:'主页更新'},
@@ -39,7 +84,7 @@
   function home() {
     return '<div class="academic-home">'+
       '<section class="academic-hero" aria-labelledby="hero-title"><img class="hero-landscape" src="./media/academic-hero.png" alt="" fetchpriority="high"><div class="hero-wash"></div><div class="hero-content page-width"><p class="hero-welcome">孙鹤翔 · Hexiang Sun</p><h1 id="hero-title">探索未知<span class="hero-separator"> · </span><br class="mobile-break">分享知识<span class="hero-separator"> · </span><br class="mobile-break">促进交流</h1><p class="hero-description">从量子信息出发，理解隐私与安全。<br>记录已发表工作，也分享学习中的思考。</p><div class="hero-buttons">'+button('阅读我的论文','#/publications')+button('联系我','#/contact',true)+'</div></div><div class="hero-caption"><span class="caption-line"></span>QUANTUM INFORMATION & PRIVACY</div></section>'+
-      '<div class="home-content page-width"><section class="home-introduction" aria-labelledby="about-heading"><div class="about-photo-wrap"><img class="about-photo" src="./media/academic-desk.png" alt="窗边书桌上的书籍、笔记本和绿植" width="720" height="560"><span class="photo-caption">A SPACE FOR THOUGHT</span></div><div class="home-about"><p class="section-kicker">ABOUT ME</p><h2 id="about-heading">'+esc(profile.name)+'</h2><span class="short-rule"></span><p>'+esc(profile.education)+'<br>'+esc(profile.position)+'</p><p class="muted-copy">'+esc(profile.introduction)+'</p>'+button('了解更多','#/about',true)+'</div><div class="research-panel"><div class="panel-heading"><h2>研究方向</h2><a class="text-link" href="#/research">查看全部'+arrow()+'</a></div>'+directionCards()+'<p class="panel-footnote">从已发表工作出发，持续学习与探索。</p></div></section>'+
+      '<div class="home-content page-width"><section class="home-introduction" aria-labelledby="about-heading"><div class="about-photo-wrap"><img class="about-photo" src="./media/academic-desk.png" alt="窗边书桌上的书籍、笔记本和绿植" width="720" height="560"><span class="photo-caption">A SPACE FOR THOUGHT</span></div><div class="home-about"><p class="section-kicker">ABOUT ME</p><h2 id="about-heading">'+esc(profile.name)+'</h2><span class="short-rule"></span><p>'+esc(profile.education)+'<br>'+esc(profile.position)+'</p><p class="muted-copy">'+esc(profile.introduction)+'</p>'+button('了解更多','#/about',true)+'</div><div class="research-panel"><div class="panel-heading"><h2>研究方向</h2><a class="text-link" href="#/research">查看全部'+arrow()+'</a></div>'+directionCards()+'<p class="panel-footnote">从具体任务出发，连接安全证明、最优构造与资源边界。</p></div></section>'+
       '<section class="home-publications" aria-label="研究成果">'+sectionHeading('PUBLICATIONS','研究成果','#/publications','论文详情与引用')+'<div class="publication-grid">'+publicationCards()+'</div></section>'+
       '<div class="home-bottom-grid"><section class="home-news">'+sectionHeading('NEWS & UPDATES','最新动态','#/news','查看全部动态')+'<div class="home-timeline">'+timeline()+'</div></section><section class="home-contact"><img src="./media/academic-desk.png" alt="" loading="lazy"><div class="contact-wash"></div><div class="contact-card-content"><p class="section-kicker">GET IN TOUCH</p><h2>交流互动<span class="heading-rule"></span></h2><p>欢迎围绕量子信息、隐私保护协议<br>以及学习与研究方法交流。</p>'+button('联系我','#/contact')+'</div></section></div>'+
       '<div class="reading-strip"><span>'+icon('book')+'文字与思考，也值得被好好收藏。</span><div><a class="text-link" href="#/articles">随笔与笔记'+arrow()+'</a><a class="text-link" href="#/knowledge">知识库'+arrow()+'</a></div></div></div></div>';
@@ -51,9 +96,9 @@
   }
   function research(id) {
     const area=areas.find(item=>item.id===id);
-    return pageHeading('RESEARCH INTERESTS',area?area.title:'量子信息中的隐私与安全',area?area.text:'从信息任务出发，关注协议功能、隐私边界与安全条件。')+
-      '<div class="research-page-grid">'+areas.map(item=>'<a class="research-overview-card'+(item.id===id?' selected':'')+'" href="#/research/'+item.id+'"><span class="icon-disc">'+icon(item.icon)+'</span><p class="section-kicker">RESEARCH / 0'+(areas.indexOf(item)+1)+'</p><h2>'+item.title+'</h2><p>'+item.detail+'</p><span class="card-status">'+(item.id==='connections'?'方法视角':'已发表论文相关主题')+'</span></a>').join('')+'</div>'+
-      '<section class="research-reading"><p class="section-kicker">RELATED PUBLICATION</p><h2>从一篇已发表论文开始阅读</h2><p>'+esc(papers[0].summary)+'</p>'+button('查看论文、导读与引用','#/publications',true)+'</section>';
+    return pageHeading('RESEARCH INTERESTS',area?area.title:'量子密码学的安全边界与资源机制',area?area.text:'围绕时空约束协议、量子密码原语与网络隐私，研究测量、纠缠、量子存储和计算能力如何决定可实现的安全性。')+
+      '<div class="research-page-grid">'+areas.map(item=>'<a class="research-overview-card'+(item.id===id?' selected':'')+'" href="#/research/'+item.id+'"><span class="icon-disc">'+icon(item.icon)+'</span><p class="section-kicker">RESEARCH / 0'+(areas.indexOf(item)+1)+'</p><h2>'+item.title+'</h2><p>'+item.detail+'</p><span class="card-status">'+item.tag+'</span></a>').join('')+'</div>'+
+      '<section class="research-reading"><p class="section-kicker">RESEARCH APPROACH</p><h2>从任务建模到可检验的安全结论</h2><p>明确输入输出、因果时序和攻击者能力，通过最小模型与反例定位关键困难，再结合解析证明、最优构造和数值验证，分析结论的适用条件及资源代价。</p>'+button('查看已发表论文','#/publications',true)+'</section>';
   }
   function paperDetail(p) {
     return '<article class="publication-detail" id="'+p.id+'"><header><div class="paper-badges"><span class="publication-badge blue">已发表 · 期刊论文</span><span class="publication-badge sage">我的第一篇 SCI 论文</span></div><h2>'+esc(p.title)+'</h2><p class="paper-chinese-title">'+esc(p.chineseTitle)+'<small>（中文译题）</small></p><p class="paper-authors">'+authorLine(p)+'</p><p class="paper-journal"><em>'+esc(p.journal)+'</em> <strong>'+p.volume+'</strong>('+p.issue+'), '+p.articleNumber+' ('+p.year+')</p><p class="paper-doi">DOI: '+external(esc(p.doi),p.doiUrl)+'</p><div class="paper-links">'+external('期刊官网',p.journalUrl,'button button-primary')+external('IOP 页面',p.publisherUrl,'button button-outline')+external('期刊 PDF',p.pdfUrl,'button button-outline')+'<a class="button button-outline" download href="'+p.bibtex+'">下载 BibTeX ↓</a></div></header>'+
@@ -74,7 +119,7 @@
   function contact() {
     return pageHeading('GET IN TOUCH','从一个好问题，开始交流。','欢迎就论文、量子信息与学习研究方法来信。')+'<section class="contact-page"><div class="contact-page-photo"><img src="./media/academic-desk.png" alt="窗边的笔记本与书籍"><span>GOOD IDEAS BEGIN WITH A CONVERSATION.</span></div><div class="contact-page-copy"><span class="empty-icon">'+icon('mail')+'</span><h2>'+esc(profile.name)+' · '+esc(profile.englishName)+'</h2><p>'+esc(profile.education)+'<br>'+esc(profile.position)+'</p><p class="contact-email"><a href="mailto:'+esc(profile.email)+'">'+esc(profile.email)+'</a></p><div class="hero-buttons"><a class="button button-primary" href="mailto:'+esc(profile.email)+'">发送邮件'+arrow()+'</a>'+external('GitHub',profile.github,'button button-outline')+'</div><p class="contact-hint">“发送邮件”会打开你的邮件应用，你可以编辑内容后自行发送。</p></div></section>';
   }
-  const pages=[{title:'首页',href:'#/',text:'孙鹤翔 Hexiang Sun 学术主页 量子信息'},{title:'关于我',href:'#/about',text:'孙鹤翔 中国科学技术大学 物理学直博生（在读） 合肥国家实验室 助理研究员'},{title:'研究方向',href:'#/research',text:'量子隐私比较 量子隐私查询 量子密码学 协议安全'},{title:'研究成果',href:'#/publications',text:papers.map(p=>p.title+' '+p.chineseTitle+' '+p.journal+' '+p.doi).join(' ')},{title:'最新动态',href:'#/news',text:'第一篇 SCI 论文 2025 主页更新'},{title:'联系我',href:'#/contact',text:profile.email+' 邮箱 学术交流'},{title:'知识库',href:'#/knowledge',text:'知识点 研究经验'},{title:'文章归档',href:'#/archive',text:'时间归档 历史文章'}];
+  const pages=[{title:'首页',href:'#/',text:'孙鹤翔 Hexiang Sun 学术主页 量子信息'},{title:'关于我',href:'#/about',text:'孙鹤翔 中国科学技术大学 物理学直博生（在读） 合肥国家实验室 助理研究员'},{title:'研究方向',href:'#/research',text:areas.map(a=>a.title+' '+a.text+' '+a.detail).join(' ')},{title:'研究成果',href:'#/publications',text:papers.map(p=>p.title+' '+p.chineseTitle+' '+p.journal+' '+p.doi).join(' ')},{title:'最新动态',href:'#/news',text:'第一篇 SCI 论文 2025 主页更新'},{title:'联系我',href:'#/contact',text:profile.email+' 邮箱 学术交流'},{title:'知识库',href:'#/knowledge',text:'知识点 研究经验'},{title:'文章归档',href:'#/archive',text:'时间归档 历史文章'}];
 
   function mount() {
     const menu=document.getElementById('menu-toggle'),nav=document.getElementById('primary-nav');
